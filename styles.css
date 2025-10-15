@@ -1,0 +1,180 @@
+/* General Layout */
+body {
+  background-color: var(--md-sys-color-surface-container-low);
+  color: var(--md-sys-color-on-surface);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 1rem;
+}
+
+@media (min-width: 640px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+}
+
+.content-wrapper {
+  max-width: 80rem; /* equivalent to max-w-7xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-y-spacing > *:not(:last-child) {
+    margin-bottom: 1.5rem; /* space-y-6 */
+}
+.container-y-spacing-sm > *:not(:last-child) {
+    margin-bottom: 0.5rem; /* space-y-2 */
+}
+
+/* Typography */
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+.mb-4 { margin-bottom: 1rem; }
+.mt-4 { margin-top: 1rem; }
+.pl-2 { padding-left: 0.5rem; }
+.border-l-2 { border-left-width: 2px; }
+
+/* YTM Calculator Layout */
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .calculator-layout {
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+  }
+  .calculator-main {
+    grid-column: span 3 / span 3;
+    margin-top: 0;
+  }
+  .calculator-sidebar {
+    grid-column: span 2 / span 2;
+    position: sticky;
+    top: 80px; /* Adjust based on app bar height */
+  }
+}
+
+/* Bond Search Layout */
+.search-form-grid {
+    display: grid;
+    gap: 1rem;
+}
+@media (min-width: 640px) {
+    .search-form-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .search-form-grid > .search-form-grid__item--span-2 {
+        grid-column: span 2 / span 2;
+    }
+}
+
+.search-results-container {
+    max-height: 15rem; /* max-h-60 */
+    overflow-y: auto;
+    padding-right: 0.5rem;
+}
+
+.error-message {
+  text-align: center;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--md-sys-color-error);
+  background-color: var(--md-sys-color-error-container);
+}
+
+/* Payout Timeline Layout */
+.accordion-item {
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+.payout-grid-header, .payout-grid-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+    align-items: center;
+}
+.payout-grid-header > div, .payout-grid-row > div {
+    text-align: right;
+}
+.payout-grid-header > div:first-child, .payout-grid-row > div:first-child {
+    text-align: left;
+}
+.payout-grid-header {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.5rem 1rem 0.25rem 1rem;
+  color: var(--md-sys-color-on-surface-variant);
+}
+md-list {
+    --md-list-container-color: transparent;
+    padding: 0;
+}
+md-list-item {
+    --md-list-item-container-color: transparent;
+}
+
+/* Collapsible / Accordion */
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+.collapsible-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-in-out;
+}
+.collapsible-content.is-open {
+    grid-template-rows: 1fr;
+}
+.collapsible-content > div {
+    overflow: hidden;
+}
+
+/* Padding utilities */
+.p-5 { padding: 1.25rem; }
+.card-padding { padding: 1.25rem; }
+.card-padding-sm { padding: 1rem; }
+
+/* Spacing utilities */
+.space-y-4 > *:not([hidden]) ~ *:not([hidden]) {
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+.space-y-2 > *:not([hidden]) ~ *:not([hidden]) {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+}
+
+/* Detail Row */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
